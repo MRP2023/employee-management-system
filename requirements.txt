@@ -1,0 +1,17 @@
+# Core framework
+Django
+
+# PostgreSQL database driver
+psycopg2-binary
+
+# Environment variable management (recommended for DB credentials, secrets)
+python-dotenv
+
+# Django REST framework (for APIs and modular architecture)
+djangorestframework
+
+# For handling CORS if frontend is separate (React/Vue/Angular)
+django-cors-headers
+
+# Optional: for handling images, static files
+Pillow

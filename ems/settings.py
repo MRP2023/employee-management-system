@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -74,10 +75,15 @@ WSGI_APPLICATION = 'ems.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ems_db',
+        'USER': 'ems_user',
+        'PASSWORD': 'ems_password',
+        'HOST': 'localhost',  # or 'ems-postgres-db' if Django also runs in Docker
+        'PORT': '5433',
     }
 }
+
 
 
 # Password validation
