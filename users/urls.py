@@ -1,6 +1,8 @@
 from django.urls import path
-from .views import UserListCreateAPI
+from .views import userList, createUser, generateUser
 
 urlpatterns = [
-    path('users/', UserListCreateAPI.as_view(), name='user-list-create'),
+    path('', userList),
+    path('create', createUser),
+    path('generate', generateUser)
 ]
