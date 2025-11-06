@@ -32,7 +32,7 @@ fake = Faker()
 
 @api_view(['POST', 'GET'])
 def generateUser(request):
-    roles = ['employee', 'manager', 'hr']
+    roles = ['employee', 'manager', 'hr','password']
     created_users = []
 
     for _ in range(20):
