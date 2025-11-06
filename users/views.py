@@ -8,7 +8,9 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status 
 from faker import Faker
+from rest_framework.pagination import PageNumberPagination
 import random
+
 
 @api_view(['POST'])
 def createUser(request):
@@ -52,4 +54,18 @@ def generateUser(request):
         "message": "20 users generated successfully",
         "users": created_users
     }, status=status.HTTP_201_CREATED)
+
+@api_view(['GET'])
+def list_user_by_role(request,role):
+    users = User.objects.filter(role = role)
+    if not users.exists():
+        return Response([], status=status.HTTP_200_OK)
+    # serializer = UserSerializer(users,many = True)
+    # return Response(serializer.data)
+    paginator = PageNumberPagination()
+    paginator.page_size = 5
+    paginated_users = paginator.paginate_queryset(users,request)
+    serializer = UserSerializer(paginated_users,many = True)
+    return paginator.get_paginated_response(serializer.data)
+
 
