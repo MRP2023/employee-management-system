@@ -34,10 +34,10 @@ fake = Faker()
 
 @api_view(['POST', 'GET'])
 def generateUser(request):
-    roles = ['employee', 'manager', 'hr','password']
+    roles = ['employee', 'manager', 'hr']
     created_users = []
 
-    for _ in range(20):
+    for _ in range(5000):
         data = {
             "username": fake.user_name() + str(random.randint(100, 999)),
             "email": fake.unique.email(),
