@@ -1,8 +1,10 @@
 from django.urls import path
-from .views import userList, createUser, generateUser
+from .views import userList, createUser, generateUser,list_user_by_role
 
 urlpatterns = [
     path('', userList),
     path('create', createUser),
-    path('generate', generateUser)
+    path('generate', generateUser),
+    path('<str:role>/', list_user_by_role),
+
 ]
