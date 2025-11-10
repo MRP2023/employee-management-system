@@ -4,6 +4,8 @@ from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.permissions import IsAuthenticated
+from datetime import timedelta
+from django.contrib.auth import login
 
 # Create your views here.
 from rest_framework import generics
@@ -92,7 +94,11 @@ def loginView(request):
     # Alvee's serializer uses make_password, so we use check_password
     if not check_password(password, user.password):
         return Response({"error": "Invalid username or password"}, status=status.HTTP_400_BAD_REQUEST)
-
+    login(request, user)  # Log the user into a session
+    
+    request.session.set_expiry(3600) #session dilam 3600 sec 
+    # request.session.set_expiry(timedelta(weeks=2)) timedelta use korle days hshebe dewa jay
+    
     # If password is correct, get or create a token
     token, created = Token.objects.get_or_create(user=user)
 
