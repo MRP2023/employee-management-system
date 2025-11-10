@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users',
+    'departments',
     'rest_framework',
     'rest_framework.authtoken',  
 ]
@@ -145,4 +146,4 @@ REST_FRAMEWORK = {
     ]
 }
 
-# AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'users.User'
