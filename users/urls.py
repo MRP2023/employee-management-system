@@ -9,3 +9,4 @@ urlpatterns = [
     path('<str:role>/', list_user_by_role),
 
 ]
+

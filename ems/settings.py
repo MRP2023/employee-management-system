@@ -39,10 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'departments',
+<<<<<<< HEAD
     'employee',
     'attendance',
     'rest_framework',
     'rest_framework.authtoken',  
+=======
+   
+    'rest_framework',
+    'rest_framework.authtoken',  
+    'employee.apps.EmployeeConfig'
+>>>>>>> origin/alvee
 ]
 
 MIDDLEWARE = [
@@ -142,12 +149,19 @@ PASSWORD_HASHERS = [
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
+<<<<<<< HEAD
         'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
 
+=======
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+>>>>>>> origin/alvee
 }
 
 AUTH_USER_MODEL = 'users.User'
