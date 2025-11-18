@@ -6,11 +6,7 @@ class Employee(models.Model):
     
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='employee_profile')
 
-<<<<<<< HEAD
-    full_name = models.CharField(max_length=100)
-=======
     full_name = models.CharField(max_length=100,blank=True, null=True)
->>>>>>> origin/alvee
     phone_number = models.CharField(max_length=20, blank=True, null=True)
     department = models.CharField(max_length=100, blank=True, null=True)
     designation = models.CharField(max_length=100, blank=True, null=True)

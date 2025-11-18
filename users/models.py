@@ -17,11 +17,7 @@ class UserManager(BaseUserManager):
             
         email = self.normalize_email(email)
         user = self.model(username=username, email=email, role=role, **extra_fields)
-<<<<<<< HEAD
         user.set_password(password) # Hashes the password
-=======
-        user.set_password(password) 
->>>>>>> origin/alvee
         user.save(using=self._db)
         return user
 
@@ -29,16 +25,10 @@ class UserManager(BaseUserManager):
         """
         Create and save a SuperUser with the given email and password.
         """
-<<<<<<< HEAD
         extra_fields.setdefault('is_staff', True)
         extra_fields.setdefault('is_superuser', True)
         extra_fields.setdefault('is_active', True)
         
-=======
-        extra_fields.setdefault('is_staff', True)   
-        extra_fields.setdefault('is_superuser', True)
-        extra_fields.setdefault('is_active', True)
->>>>>>> origin/alvee
         # Set a default role for superuser, or handle as you see fit
         extra_fields.setdefault('role', 'hr') 
 
@@ -47,17 +37,7 @@ class UserManager(BaseUserManager):
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser=True.')
             
-<<<<<<< HEAD
         return self.create_user(username, email, password=password, **extra_fields)
-=======
-        return self.create_user(
-        username=username,
-        email=email,
-        role=extra_fields['role'],   # ← pass role explicitly
-        password=password,
-        **extra_fields
-    )
->>>>>>> origin/alvee
 
 class User(AbstractBaseUser, PermissionsMixin):
     ROLE_CHOICES = [
