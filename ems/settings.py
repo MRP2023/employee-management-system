@@ -39,9 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'departments',
-    'employee',
+   
     'rest_framework',
     'rest_framework.authtoken',  
+    'employee.apps.EmployeeConfig'
 ]
 
 MIDDLEWARE = [
