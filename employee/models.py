@@ -4,7 +4,7 @@ from users.models import User
 
 class Employee(models.Model):
     
-    user = models.OneToOneField(User, on_delete=models.CASCADE, elated_name='employee_profile')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='employee_profile')
 
     full_name = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=20, blank=True, null=True)
