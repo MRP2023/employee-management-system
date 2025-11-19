@@ -15,3 +15,7 @@ django-cors-headers
 
 # Optional: for handling images, static files
 Pillow
+
+Faker
+
+bcrypt
